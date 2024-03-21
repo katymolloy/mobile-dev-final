@@ -7,7 +7,7 @@ import Matter from "matter-js";
 export default (gameWorld) => {
   let engine = Matter.Engine.create(/*{ enableSleeping: false }*/);
   let world = engine.world;
-  //engine.gravity.y = 0.4;
+  engine.gravity.y = 0.9;
 
   let screenWidth = Dimensions.get("window").width;
   let screenHeight = Dimensions.get("window").height;
@@ -18,8 +18,8 @@ export default (gameWorld) => {
     Fish: Box(
       world,
       "blue",
-      { x: Constants.SCREEN_WIDTH - 40, y: Constants.SCREEN_HEIGHT - 115 },
-      { height: 90, width: 60 }
+      { x: Constants.SCREEN_WIDTH - 300, y: Constants.SCREEN_HEIGHT - 115 },
+      { height: 50, width: 60 }
     ),
     
     TopEdge: Boundary(
