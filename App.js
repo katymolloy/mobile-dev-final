@@ -36,6 +36,7 @@ export default function App() {
         systems={[Physics]}
         entities={entities()}
         running={running}
+
         onEvent={(e) => {
           switch (e.type) {
             case 'game_over':
@@ -44,6 +45,7 @@ export default function App() {
               break;
           }
         }}
+
         style={styles.gameContainer}>
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
@@ -56,9 +58,8 @@ export default function App() {
               backgroundColor: 'white',
               paddingHorizontal: 80,
               paddingVertical: 20,
-              marginTop: -80,
-              marginBottom: 80,
-              zIndex: 10,
+              marginTop: '-60%',
+              marginBottom: '60%',
               borderRadius: 50,
             }}
             onPress={() => {

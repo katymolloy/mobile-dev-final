@@ -1,6 +1,6 @@
 import Matter from 'matter-js';
 import React, { useState } from 'react';
-import { View  } from 'react-native';
+import { View, Image } from 'react-native';
 
 
 const Fish = (props) => {
@@ -31,7 +31,18 @@ const Fish = (props) => {
         width: width,
         height: height,
       }}>
+
+      <Image
+        style={{
+          //resizeMode: 'cover',
+          height: 70,
+          width: 140
+          ,
+        }}
+        source={require('../assets/fish.png')}
+      />
     </View>
+
   );
 };
 

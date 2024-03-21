@@ -18,8 +18,8 @@ export default (gameWorld) => {
     Fish: Box(
       world,
       "blue",
-      { x: Constants.SCREEN_WIDTH - 300, y: Constants.SCREEN_HEIGHT - 115 },
-      { height: 50, width: 60 }
+      { x: Constants.SCREEN_WIDTH - 320, y: Constants.SCREEN_HEIGHT /2 - 50 },
+      { height: 50, width: 120 }
     ),
     
     TopEdge: Boundary(
