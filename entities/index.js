@@ -1,6 +1,5 @@
 import Matter from "matter-js";
 import { Dimensions } from "react-native";
-import Monster from '../components/monster';
 import Box from "../components/Box";
 import Edges from './../components/edges';
 import Constants from "../Constants";

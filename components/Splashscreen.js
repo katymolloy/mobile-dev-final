@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Animated, StyleSheet, Image } from 'react-native';
 
-import { screenHeight, screenWidth } from '../Consts';
+import Constants from '../Constants';
 
 const SplashScreen = ({ onHide }) => {
   const opacity = new Animated.Value(1);
@@ -24,7 +24,7 @@ const SplashScreen = ({ onHide }) => {
   return (
     <Animated.View style={{ opacity, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Image source={require('../assets/splashscreen.png')}
-      style={{width: screenWidth, height: screenHeight}}></Image>
+      style={{width: Constants.SCREEN_WIDTH, height: Constants.SCREEN_HEIGHT}}></Image>
     </Animated.View>
   );
 };

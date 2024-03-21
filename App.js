@@ -2,10 +2,19 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import SplashScreen from './components/Splashscreen';
-import { screenHeight, screenWidth } from './Consts';
+import Constants from './Constants';
+import { GameEngine } from 'react-native-game-engine';
+import { useEffect } from 'react';
+import Physics from 'physics.js';
+import entities from "./entities";
 
 export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
+
+  const [running, setRunning] = useState(false);
+  useEffect(() => {
+    setRunning(true);
+  }, []);
 
   const hideSplashScreen = () => {
     setSplashScreenVisible(false);
@@ -46,8 +55,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    width: screenWidth,
-    height: screenHeight,
+    width: Constants.SCREEN_WIDTH,
+    height: Constants.SCREEN_HEIGHT,
     zIndex: -1, // Ensure the image is behind other content
   },
 
