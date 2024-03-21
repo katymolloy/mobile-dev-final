@@ -5,8 +5,8 @@ import SplashScreen from './components/Splashscreen';
 import Constants from './Constants';
 import { GameEngine } from 'react-native-game-engine';
 import { useEffect } from 'react';
-import Physics from './physics';
-import entities from "./entities";
+// import Physics from './physics';
+// import entities from "./entities";
 
 export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);

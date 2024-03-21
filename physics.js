@@ -1,10 +1,7 @@
+const Physics = (entities, { touches, time }) => {
+    // Physics logic
+  };
+  
+  export default Physics;
+  
 
-
-const Physics = (entities) => {
-
-
-  let engine = entities.physics.engine;
-
-};
-
-export default Physics;
