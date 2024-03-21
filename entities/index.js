@@ -16,6 +16,13 @@ export default (gameWorld) => {
   return {
 
     physics: { engine, world },
+
+    Fish: Box(
+      world,
+      "blue",
+      { x: Constants.SCREEN_WIDTH - 40, y: Constants.SCREEN_HEIGHT - 115 },
+      { height: 90, width: 60 }
+    ),
     
     TopEdge: Edges(
       world,
