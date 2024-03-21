@@ -15,12 +15,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} />
-      }
-
+      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} /> }
+      
       <Image source={require('./assets/background.png')}
-        style={{ width: screenWidth, height: screenHeight }}></Image>
-
+        style={styles.backgroundImage}></Image>
 
     </View>
 
@@ -34,4 +32,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+    backgroundImage: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: screenWidth,
+      height: screenHeight,
+      zIndex: -1, // Ensure the image is behind other content
+    },
+  
 });
