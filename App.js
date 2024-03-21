@@ -5,45 +5,32 @@ import SplashScreen from './components/Splashscreen';
 import Constants from './Constants';
 import { GameEngine } from 'react-native-game-engine';
 import { useEffect } from 'react';
-// import Physics from './physics';
-// import entities from "./entities";
+import Physics from './physics';
+import entities from "./entities";
 
 export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
-  const [gameEngine, setGameEngine] = useState(null);
 
-  const [running, setRunning] = useState(false);
   useEffect(() => {
-    setRunning(true);
+    setTimeout(() => {
+      setSplashScreenVisible(false);
+    }, 2000); // Assuming you want to hide the splash screen after 2 seconds
   }, []);
-
-  const hideSplashScreen = () => {
-    setSplashScreenVisible(false);
-  };
-
 
 
   return (
     <View style={styles.container}>
-      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} />}
+      {splashScreenVisible && <SplashScreen />}
 
-      <Image source={require('./assets/background.png')}
-        style={styles.backgroundImage}></Image>
-      <GameEngine
-        ref={(ref) => {
-          setGameEngine(ref);
-        }}
-        // systems={[Physics]}
-        // entities={entities()}
-        style={styles.gameContainer}
-      >
+      <Image
+        source={require('./assets/background.png')}
+        style={styles.backgroundImage}
+      />
 
-
+      <GameEngine systems={[Physics]} entities={entities()} style={styles.gameContainer}>
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
-
     </View>
-
   );
 }
 

@@ -1,19 +1,18 @@
-import Matter from "matter-js";
 import { Dimensions } from "react-native";
 import Box from "../components/Box";
-import Edges from './../components/edges';
+import Boundary from '../components/Boundary';
 import Constants from "../Constants";
+import Matter from "matter-js";
 
 export default (gameWorld) => {
-  let engine = Matter.Engine.create({ enableSleeping: false });
+  let engine = Matter.Engine.create(/*{ enableSleeping: false }*/);
   let world = engine.world;
-  engine.gravity.y = 0.4;
+  //engine.gravity.y = 0.4;
 
   let screenWidth = Dimensions.get("window").width;
   let screenHeight = Dimensions.get("window").height;
 
   return {
-
     physics: { engine, world },
 
     Fish: Box(
@@ -23,25 +22,25 @@ export default (gameWorld) => {
       { height: 90, width: 60 }
     ),
     
-    TopEdge: Edges(
+    TopEdge: Boundary(
       world,
       "blue",
       { x: screenWidth / 2, y: 0 },
       { height: 20, width: screenWidth }
     ),
-    LeftEdge: Edges(
+    LeftEdge: Boundary(
       world,
       "blue",
       { x: 0, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
-    RightEdge: Edges(
+    RightEdge: Boundary(
       world,
       "blue",
       { x: screenWidth, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
-    BottomEdge: Edges(
+    BottomEdge: Boundary(
       world,
       "blue",
       { x: screenWidth / 2, y: screenHeight },

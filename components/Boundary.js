@@ -2,7 +2,7 @@ import Matter from 'matter-js';
 import React from 'react';
 import { Dimensions, View } from 'react-native';
 
-const Edges = (props) => {
+const Boundary = (props) => {
   const width = props.body.bounds.max.x - props.body.bounds.min.x;
   const height = props.body.bounds.max.y - props.body.bounds.min.y;
 
@@ -24,16 +24,16 @@ const Edges = (props) => {
 };
 
 export default (world, color, pos, size) => {
-  const Edges = Matter.Bodies.rectangle(
+  const boundary = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
     size.width,
     size.height,
     {
-      label: 'Edges',
+      label: 'BoundaryBottom',
       isStatic: true,
     }
   );
-  Matter.World.add(world, Edges);
-  return { body: Edges, color, pos, renderer: <Edges /> };
+  Matter.World.add(world, boundary);
+  return { body: boundary, color, pos, renderer: <Boundary /> };
 };
