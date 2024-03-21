@@ -15,10 +15,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} /> }
+      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} />}
 
       <Image source={require('./assets/background.png')}
         style={styles.backgroundImage}></Image>
+
+      <GameEngine
+        systems={[Physics]}
+        entities={entities()}
+        running={running}
+        style={styles.gameContainer}
+      >
+        {<StatusBar style="auto" hidden={true} />}
+      </GameEngine>
 
     </View>
 
@@ -33,13 +42,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-    backgroundImage: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: screenWidth,
-      height: screenHeight,
-      zIndex: -1, // Ensure the image is behind other content
-    },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: screenWidth,
+    height: screenHeight,
+    zIndex: -1, // Ensure the image is behind other content
+  },
+
+  gameContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  }
 
 });
