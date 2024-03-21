@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Dimensions, View, TouchableWithoutFeedback } from 'react-native';
 import SpriteSheet from 'rn-sprite-sheet';
 
-const Candle = (props) => {
-  let candle = null;
+const Fish = (props) => {
+  let fish = null;
   const width = props.body.bounds.max.x - props.body.bounds.min.x;
   const height = props.body.bounds.max.y - props.body.bounds.min.y;
 
@@ -12,7 +12,7 @@ const Candle = (props) => {
   const yPos = props.body.position.y - height / 2;
 
   let startAnimate = (type) => {
-    candle.play({
+    fish.play({
       type: type,
       fps: 24, // frames per second
       loop: true, //if true, replays animation after it finishes
@@ -32,18 +32,16 @@ const Candle = (props) => {
         height: height,
       }}>
       <SpriteSheet
-        ref={(ref) => (candle = ref)}
-        source={require('../assets/candle.png')}
-        columns={7}
-        rows={2}
+        ref={(ref) => (fish = ref)}
+        source={require('../assets/fish.png')}
+        columns={1}
+        rows={1}
         height={height} // set either, none, but not both
         //width={width}
-        onLoad={() => startAnimate('extinguish1')}
+        onLoad={() => startAnimate('fish')}
         imageStyle={{ marginTop: 0 }}
         animations={{
-          light: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-          //extinguish1: [14, 15, 16, 17],
-          extinguish1: [7],  // number 7 is "OFF" - not lighting 
+          fish: [0],
         }}
       />
       <TouchableWithoutFeedback
@@ -58,13 +56,13 @@ const Candle = (props) => {
 };
 
 export default (world, color, pos, size) => {
-  const theCandle = Matter.Bodies.rectangle(
+  const theFish = Matter.Bodies.rectangle(
     pos.x,
     pos.y,
     size.width,
     size.height,
-    { label: 'Candle', restitution: 1, frictionAir: 0, isStatic: true }
+    { label: 'Fish', restitution: 1, frictionAir: 0, isStatic: false }
   );
-  Matter.World.add(world, theCandle);
-  return { body: theCandle, color, pos, renderer: <Candle /> };
+  Matter.World.add(world, theFish);
+  return { body: theFish, color, pos, renderer: <Fish /> };
 };
