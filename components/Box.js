@@ -1,7 +1,7 @@
 import Matter from 'matter-js';
 import React, { useState } from 'react';
-import { Dimensions, View, TouchableWithoutFeedback } from 'react-native';
-import SpriteSheet from 'rn-sprite-sheet';
+import { View  } from 'react-native';
+
 
 const Fish = (props) => {
   let fish = null;
@@ -31,26 +31,6 @@ const Fish = (props) => {
         width: width,
         height: height,
       }}>
-      <SpriteSheet
-        ref={(ref) => (fish = ref)}
-        source={require('../assets/fish.png')}
-        columns={1}
-        rows={1}
-        height={height} // set either, none, but not both
-        //width={width}
-        onLoad={() => startAnimate('fish')}
-        imageStyle={{ marginTop: 0 }}
-        animations={{
-          fish: [0],
-        }}
-      />
-      <TouchableWithoutFeedback
-        onPress={() => startAnimate('light')}
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-        <View
-          style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-        />
-      </TouchableWithoutFeedback>
     </View>
   );
 };

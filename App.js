@@ -5,11 +5,12 @@ import SplashScreen from './components/Splashscreen';
 import Constants from './Constants';
 import { GameEngine } from 'react-native-game-engine';
 import { useEffect } from 'react';
-import Physics from 'physics.js';
+import Physics from './physics';
 import entities from "./entities";
 
 export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
+  const [gameEngine, setGameEngine] = useState(null);
 
   const [running, setRunning] = useState(false);
   useEffect(() => {
@@ -28,14 +29,17 @@ export default function App() {
 
       <Image source={require('./assets/background.png')}
         style={styles.backgroundImage}></Image>
-
       <GameEngine
-        systems={[Physics]}
-        entities={entities()}
-        running={running}
+        ref={(ref) => {
+          setGameEngine(ref);
+        }}
+        // systems={[Physics]}
+        // entities={entities()}
         style={styles.gameContainer}
       >
-        {<StatusBar style="auto" hidden={true} />}
+
+
+        <StatusBar style="auto" hidden={true} />
       </GameEngine>
 
     </View>

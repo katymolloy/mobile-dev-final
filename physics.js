@@ -1,9 +1,10 @@
-// import Matter, { Sleeping } from "matter-js";
 
-// const Physics = (entities, { touches, time }) => {
 
-//     let engine = entities.pysics.engine;
+const Physics = (entities) => {
 
-//     Matter.Engine.update(egine, time.delta);
 
-// }
+  let engine = entities.physics.engine;
+
+};
+
+export default Physics;
