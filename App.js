@@ -1,5 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import SplashScreen from './components/Splashscreen';
+import { screenHeight, screenWidth } from './Consts';
 
 export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
@@ -12,27 +15,31 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} /> }
+
+      <Image source={require('./assets/background.png')}
+        style={styles.backgroundImage}></Image>
+
     </View>
 
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    width: Constants.SCREEN_WIDTH,
-    height: Constants.SCREEN_HEIGHT,
-  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+    backgroundImage: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: screenWidth,
+      height: screenHeight,
+      zIndex: -1, // Ensure the image is behind other content
+    },
+
 });
