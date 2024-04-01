@@ -26,7 +26,7 @@ const SplashScreen = ({ onHide }) => {
   }, []);
 
   return (
-    <Animated.View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', zIndex, opacity }}>
+    <Animated.View style={{ position: 'absolute', top: 0, alignItems: 'center', justifyContent: 'center', zIndex, opacity }}>
       <Image
         source={require('../assets/splashscreen.jpg')}
         style={{ width: Constants.SCREEN_WIDTH, height: Constants.SCREEN_HEIGHT }}
