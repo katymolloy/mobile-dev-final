@@ -1,4 +1,6 @@
 import Matter, { Sleeping } from "matter-js";
+import Constants from "./Constants";
+
 const Physics = (entities, { touches, time, dispatch }) => {
   // Physics logic
   let engine = entities.physics.engine;
@@ -16,6 +18,10 @@ const Physics = (entities, { touches, time, dispatch }) => {
     });
 
   Matter.Events.on(engine, 'collisionStart', (event) => {
+    Matter.Body.setPosition(entities.Fish.body, {
+      x: Constants.SCREEN_WIDTH - 320,
+      y: Constants.SCREEN_HEIGHT / 2 - 50
+    });
     dispatch({ type: 'game_over' })
   })
   return entities;
