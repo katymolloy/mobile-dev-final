@@ -13,13 +13,12 @@ export default function App() {
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
 
-  /*
   useEffect(() => {
+    // Hide splash screen after 2 seconds
     setTimeout(() => {
       setSplashScreenVisible(false);
-    }, 2000); // Assuming you want to hide the splash screen after 2 seconds
+    }, 2000);
   }, []);
-*/
 
   return (
     <View style={styles.container}>
@@ -49,21 +48,21 @@ export default function App() {
         style={styles.gameContainer}>
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
+      {splashScreenVisible && !running && <SplashScreen />}
+
       {!running ? (
         <View
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <SplashScreen />
           <TouchableOpacity
             style={{
               backgroundColor: 'white',
               paddingHorizontal: 80,
               paddingVertical: 20,
-              marginTop: '-60%',
-              marginBottom: '60%',
               borderRadius: 50,
             }}
             onPress={() => {
               setRunning(true);
+              entities().resetFishPosition(); // Reset fish position
             }}>
             <Text
               style={{ fontWeight: 'bold', color: '#012e43', fontSize: 20 }}>

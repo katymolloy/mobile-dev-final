@@ -46,7 +46,6 @@ export default (gameWorld) => {
       { x: screenWidth / 2, y: screenHeight },
       { height: 20, width: screenWidth }
     ),
-    
   };
 };
 
