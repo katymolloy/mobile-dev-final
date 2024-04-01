@@ -62,7 +62,6 @@ export default function App() {
             }}
             onPress={() => {
               setRunning(true);
-              entities().resetFishPosition(); // Reset fish position
             }}>
             <Text
               style={{ fontWeight: 'bold', color: '#012e43', fontSize: 20 }}>
