@@ -7,4 +7,11 @@ const Constants = {
     WINDOW_HEIGHT: Dimensions.get("window").height,
 };
 
+export const randomY = (screenHeight) => {
+    const max = screenHeight - 10;
+    const min = screenHeight - 800;
+    const yValue = Math.floor(Math.random() * (max - min) + min)
+    return yValue;
+}
+
 export default Constants;
