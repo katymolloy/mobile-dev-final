@@ -12,7 +12,7 @@ export default function App() {
   const [splashScreenVisible, setSplashScreenVisible] = useState(true);
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
-  const [score, setScore] = useState = (0);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     // Hide splash screen after 2 seconds
@@ -54,7 +54,7 @@ export default function App() {
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
       <View>
-        <Text style = {scoreStyle}>Score: { score }</Text>
+        <Text style = {styles.scoreStyle}>Score: {score}</Text>
       </View>
       {splashScreenVisible && !running && <SplashScreen />}
 
@@ -110,8 +110,10 @@ const styles = StyleSheet.create({
 
   scoreStyle: {
     position: 'absolute',
-    top: 10,
-    left: 5,
+    top: -400,
+    left: -170,
+    color: 'white',
+    fontSize: 25,
   }
 
 });
