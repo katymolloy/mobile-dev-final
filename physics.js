@@ -45,7 +45,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
 
     });
   }
- 
+
 
 
   touches
@@ -73,6 +73,10 @@ const Physics = (entities, { touches, time, dispatch }) => {
         x: Constants.SCREEN_WIDTH,
         y: randomY(Constants.SCREEN_HEIGHT)
       });
+
+      Matter.Body.setVelocity(entities.Fish.body, { x: 0, y: 0 });
+
+      Matter.Body.setAngularVelocity(entities.Fish.body, 0);
 
       Matter.Body.setPosition(entities.Enemy2.body, {
         x: Constants.SCREEN_WIDTH,
