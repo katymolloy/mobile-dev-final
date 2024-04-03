@@ -77,6 +77,7 @@ export default function App() {
       {!running ? (
         <View
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={styles.finalScore}>Your Score : {score}</Text>
           <TouchableOpacity
             style={{
               backgroundColor: 'white',
@@ -86,6 +87,7 @@ export default function App() {
             }}
             onPress={() => {
               setRunning(true);
+              setScore(0);
             }}>
             <Text
               style={{ fontWeight: 'bold', color: '#012e43', fontSize: 20 }}>
@@ -130,6 +132,14 @@ const styles = StyleSheet.create({
     left: -170,
     color: 'white',
     fontSize: 25,
+    fontWeight: 'bold',
+  },
+
+  finalScore: {
+    position: 'absolute',
+    top: 500,
+    color: 'white',
+    fontSize: 23,
     fontWeight: 'bold',
   },
 
