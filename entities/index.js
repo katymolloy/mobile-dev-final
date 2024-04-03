@@ -35,25 +35,25 @@ export default (gameWorld) => {
     
     TopEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth / 2, y: 0 },
       { height: 20, width: screenWidth }
     ),
     LeftEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: 0, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
     RightEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
     BottomEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth / 2, y: screenHeight },
       { height: 20, width: screenWidth }
     ),

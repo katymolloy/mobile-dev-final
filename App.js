@@ -59,17 +59,19 @@ export default function App() {
         style={styles.gameContainer}>
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
-      <View>
-        <Text style={styles.scoreStyle}>Score: {score}</Text>
-      </View>
 
-      {running ? (<TouchableOpacity
-        style={styles.pauseButton}
-        onPress={togglePause}>
-        <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 25 }}>
-          {paused ? 'Resume' : 'Pause'}
-        </Text>
-      </TouchableOpacity>) : null}
+      {running ? (
+        <Text style={styles.scoreStyle}>Score: {score}</Text>) : null}
+
+
+      {running ? (
+        <TouchableOpacity
+          style={styles.pauseButton}
+          onPress={togglePause}>
+          <Text style={{ fontWeight: 'bold', color: '#012e43', fontSize: 25 }}>
+            {paused ? 'Resume' : 'Pause'}
+          </Text>
+        </TouchableOpacity>) : null}
 
 
       {splashScreenVisible && !running && <SplashScreen />}
@@ -128,19 +130,12 @@ const styles = StyleSheet.create({
 
   scoreStyle: {
     position: 'absolute',
-    top: -390,
-    left: -170,
+    top: 20,
+    left: 40,
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-  },
-
-  finalScore: {
-    position: 'absolute',
-    top: 500,
-    color: 'white',
-    fontSize: 23,
-    fontWeight: 'bold',
+    color: '#012e43',
   },
 
   pauseButton: {
@@ -148,7 +143,13 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     top: 20,
     left: Constants.SCREEN_WIDTH - 150,
-    padding: 10,
     borderRadius: 5,
+  },
+  finalScore: {
+    position: 'absolute',
+    top: 500,
+    color: '#012e43',
+    fontSize: 23,
+    fontWeight: 'bold',
   },
 });

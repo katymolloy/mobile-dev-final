@@ -21,26 +21,32 @@ const Physics = (entities, { touches, time, dispatch }) => {
   Matter.Body.translate(entities.Enemy2.body, { x: enemy2speed, y: 0 });
   Matter.Body.translate(entities.Enemy3.body, { x: enemy3speed, y: 0 });
 
+  const getRandomXOffset = () => {
+    return Math.random() * (350 - 250);
+  };
 
   if (entities.Enemy1.body.position.x < -35) {
     dispatch({ type: "score" });
+    const randomXOffset = getRandomXOffset();
     Matter.Body.setPosition(entities.Enemy1.body, {
-      x: Constants.WINDOW_WIDTH + 35,
+      x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
     });
   }
 
   if (entities.Enemy2.body.position.x < -35) {
     dispatch({ type: "score" });
+    const randomXOffset = getRandomXOffset();
     Matter.Body.setPosition(entities.Enemy2.body, {
-      x: Constants.WINDOW_WIDTH + 35,
+      x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
-
     });
   }
   if (entities.Enemy3.body.position.x < -35) {
+    dispatch({ type: "score" });
+    const randomXOffset = getRandomXOffset();
     Matter.Body.setPosition(entities.Enemy3.body, {
-      x: Constants.WINDOW_WIDTH + 35,
+      x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
 
     });

@@ -19,7 +19,7 @@ const SplashScreen = ({ onHide }) => {
         setZIndex(-10); // Set zIndex to -10 after opacity becomes 0
         onHide && onHide();
       });
-    }, 3000); // Wait 3 seconds before starting the animation
+    }, 5000); // Wait 3 seconds before starting the animation
 
     // Clear timeout to avoid memory leaks
     return () => clearTimeout(timer);
