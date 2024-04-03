@@ -13,6 +13,7 @@ export default function App() {
   const [running, setRunning] = useState(false);
   const [gameEngine, setGameEngine] = useState(null);
   const [score, setScore] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     // Hide splash screen after 2 seconds
@@ -20,6 +21,11 @@ export default function App() {
       setSplashScreenVisible(false);
     }, 2000);
   }, []);
+
+  // Function to toggle pause state
+  const togglePause = () => {
+    setPaused(!paused);
+  };
 
   return (
     <View style={styles.container}>
@@ -35,7 +41,7 @@ export default function App() {
         }}
         systems={[Physics]}
         entities={entities()}
-        running={running}
+        running={running && !paused}
 
         onEvent={(e) => {
           switch (e.type) {
@@ -44,7 +50,7 @@ export default function App() {
               gameEngine.stop();
               break;
 
-            case 'score': 
+            case 'score':
               setScore(score + 1);
               break;
           }
@@ -54,8 +60,18 @@ export default function App() {
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
       <View>
-        <Text style = {styles.scoreStyle}>Score: {score}</Text>
+        <Text style={styles.scoreStyle}>Score: {score}</Text>
       </View>
+
+      {running ? (<TouchableOpacity
+        style={styles.pauseButton}
+        onPress={togglePause}>
+        <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 25 }}>
+          {paused ? 'Resume' : 'Pause'}
+        </Text>
+      </TouchableOpacity>) : null}
+
+
       {splashScreenVisible && !running && <SplashScreen />}
 
       {!running ? (
@@ -110,10 +126,19 @@ const styles = StyleSheet.create({
 
   scoreStyle: {
     position: 'absolute',
-    top: -400,
+    top: -390,
     left: -170,
     color: 'white',
     fontSize: 25,
-  }
+    fontWeight: 'bold',
+  },
 
+  pauseButton: {
+    position: 'absolute',
+    textAlign: 'right',
+    top: 20,
+    left: Constants.SCREEN_WIDTH - 150,
+    padding: 10,
+    borderRadius: 5,
+  },
 });
