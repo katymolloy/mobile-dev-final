@@ -2,7 +2,6 @@ import Matter, { Sleeping } from "matter-js";
 import Constants, { randomY } from "./Constants";
 
 const Physics = (entities, { touches, time, dispatch }) => {
-  // Physics logic
   let engine = entities.physics.engine;
   let world = engine.world;
 
@@ -54,14 +53,12 @@ const Physics = (entities, { touches, time, dispatch }) => {
     enemy3speed--;
   }
 
-
-
   touches
     .filter((t) => t.type === 'press')
     .forEach((t) => {
       Matter.Body.setVelocity(entities.Fish.body, {
-        x: 0, //move along x-axis with given velocity
-        y: -8, //move along y-axis with given velocity
+        x: 0,
+        y: -8,
       });
     });
 
@@ -70,7 +67,6 @@ const Physics = (entities, { touches, time, dispatch }) => {
     var objALabel = pairs[0].bodyA.label;
     var objBLabel = pairs[0].bodyB.label;
 
-    // if the player hits anything, the game is over
     if (objALabel === 'Fish' || objBLabel === 'Fish') {
       Matter.Body.setPosition(entities.Fish.body, {
         x: Constants.SCREEN_WIDTH - 320,
@@ -97,9 +93,6 @@ const Physics = (entities, { touches, time, dispatch }) => {
       });
       dispatch({ type: 'game_over' })
     }
-
-
- 
   })
   return entities;
 };

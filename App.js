@@ -16,7 +16,6 @@ export default function App() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    // Hide splash screen after 2 seconds
     setTimeout(() => {
       setSplashScreenVisible(false);
     }, 4000);
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: Constants.SCREEN_WIDTH,
     height: Constants.SCREEN_HEIGHT,
-    zIndex: -1, // Ensure the image is behind other content
+    zIndex: -1,
   },
 
   gameContainer: {

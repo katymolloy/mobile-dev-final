@@ -20,7 +20,6 @@ const SplashScreen = ({ onHide }) => {
       });
     }, 4000);
 
-    // Clear timeout to avoid memory leaks
     return () => clearTimeout(timer);
   }, []);
 

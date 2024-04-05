@@ -24,10 +24,10 @@ export default (gameWorld) => {
       { x: Constants.SCREEN_WIDTH - 320, y: Constants.SCREEN_HEIGHT / 2 - 50 },
       { height: 50, width: 120 }
     ),
-   
-    Enemy1: Enemy(world, 'red', {x: screenWidth + 15, y: randomY(screenHeight)}, { radius: 70 }, Images.Enemy1), 
-    Enemy2: Enemy(world, 'red', {x: screenWidth + 15, y: randomY(screenHeight)}, { radius: 70 },Images.Enemy2 ), 
-    Enemy3: Enemy(world, 'red', {x: screenWidth + 15, y: randomY(screenHeight)}, { radius: 70 }, Images.Enemy3),
+
+    Enemy1: Enemy(world, 'red', { x: screenWidth + 15, y: randomY(screenHeight) }, { radius: 50 }, Images.Enemy1),
+    Enemy2: Enemy(world, 'red', { x: screenWidth + 15, y: randomY(screenHeight) }, { radius: 50 }, Images.Enemy2),
+    Enemy3: Enemy(world, 'red', { x: screenWidth + 15, y: randomY(screenHeight) }, { radius: 50 }, Images.Enemy3),
 
     TopEdge: Boundary(
       world,
@@ -54,11 +54,4 @@ export default (gameWorld) => {
       { height: 20, width: screenWidth }
     ),
   };
-<<<<<<< HEAD
 };
-
-
-
-=======
-};
->>>>>>> 40be58ffc6a7d89b58af0a220b081900bb3facdb
