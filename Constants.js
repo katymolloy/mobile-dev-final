@@ -8,8 +8,8 @@ const Constants = {
 };
 
 export const randomY = (screenHeight) => {
-    const max = screenHeight - 10;
-    const min = screenHeight - 800;
+    const max = screenHeight - (screenHeight * 0.1);
+    const min = screenHeight - (screenHeight * 0.9);
     const yValue = Math.floor(Math.random() * (max - min) + min)
     return yValue;
 }

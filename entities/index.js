@@ -15,16 +15,13 @@ export default (gameWorld) => {
   let screenWidth = Dimensions.get("window").width;
   let screenHeight = Dimensions.get("window").height;
 
-
-
-
   return {
     physics: { engine, world },
 
     Fish: Box(
       world,
       "blue",
-      { x: Constants.SCREEN_WIDTH - 320, y: Constants.SCREEN_HEIGHT /2 - 50 },
+      { x: Constants.SCREEN_WIDTH - 320, y: Constants.SCREEN_HEIGHT / 2 - 50 },
       { height: 50, width: 120 }
     ),
    
@@ -32,33 +29,36 @@ export default (gameWorld) => {
     Enemy2: Enemy(world, 'red', {x: screenWidth + 15, y: randomY(screenHeight)}, { radius: 70 },Images.Enemy2 ), 
     Enemy3: Enemy(world, 'red', {x: screenWidth + 15, y: randomY(screenHeight)}, { radius: 70 }, Images.Enemy3),
 
-    
     TopEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth / 2, y: 0 },
       { height: 20, width: screenWidth }
     ),
     LeftEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: 0, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
     RightEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth, y: screenHeight / 2 },
       { height: screenHeight, width: 20 }
     ),
     BottomEdge: Boundary(
       world,
-      "blue",
+      "#012e43",
       { x: screenWidth / 2, y: screenHeight },
       { height: 20, width: screenWidth }
     ),
   };
+<<<<<<< HEAD
 };
 
 
 
+=======
+};
+>>>>>>> 40be58ffc6a7d89b58af0a220b081900bb3facdb

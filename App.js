@@ -19,7 +19,7 @@ export default function App() {
     // Hide splash screen after 2 seconds
     setTimeout(() => {
       setSplashScreenVisible(false);
-    }, 2000);
+    }, 4000);
   }, []);
 
   // Function to toggle pause state
@@ -59,17 +59,19 @@ export default function App() {
         style={styles.gameContainer}>
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
-      <View>
-        <Text style={styles.scoreStyle}>Score: {score}</Text>
-      </View>
 
-      {running ? (<TouchableOpacity
-        style={styles.pauseButton}
-        onPress={togglePause}>
-        <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 25 }}>
-          {paused ? 'Resume' : 'Pause'}
-        </Text>
-      </TouchableOpacity>) : null}
+      {running ? (
+        <Text style={styles.scoreStyle}>Score: {score}</Text>) : null}
+
+
+      {running ? (
+        <TouchableOpacity
+          style={styles.pauseButton}
+          onPress={togglePause}>
+          <Text style={{ fontWeight: 'bold', color: '#012e43', fontSize: 25 }}>
+            {paused ? 'Resume' : 'Pause'}
+          </Text>
+        </TouchableOpacity>) : null}
 
 
       {splashScreenVisible && !running && <SplashScreen />}
@@ -77,6 +79,7 @@ export default function App() {
       {!running ? (
         <View
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={styles.finalScore}>Your Score : {score}</Text>
           <TouchableOpacity
             style={{
               backgroundColor: 'white',
@@ -86,6 +89,7 @@ export default function App() {
             }}
             onPress={() => {
               setRunning(true);
+              setScore(0);
             }}>
             <Text
               style={{ fontWeight: 'bold', color: '#012e43', fontSize: 20 }}>
@@ -126,11 +130,12 @@ const styles = StyleSheet.create({
 
   scoreStyle: {
     position: 'absolute',
-    top: -390,
-    left: -170,
+    top: 20,
+    left: 40,
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
+    color: '#012e43',
   },
 
   pauseButton: {
@@ -138,7 +143,13 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     top: 20,
     left: Constants.SCREEN_WIDTH - 150,
-    padding: 10,
     borderRadius: 5,
+  },
+  finalScore: {
+    position: 'absolute',
+    top: 500,
+    color: '#012e43',
+    fontSize: 23,
+    fontWeight: 'bold',
   },
 });
