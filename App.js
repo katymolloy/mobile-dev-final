@@ -19,7 +19,7 @@ export default function App() {
     // Hide splash screen after 2 seconds
     setTimeout(() => {
       setSplashScreenVisible(false);
-    }, 2000);
+    }, 4000);
   }, []);
 
   // Function to toggle pause state

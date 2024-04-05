@@ -18,7 +18,7 @@ const SplashScreen = ({ onHide }) => {
         setZIndex(-10);
         onHide && onHide();
       });
-    }, 5000);
+    }, 4000);
 
     // Clear timeout to avoid memory leaks
     return () => clearTimeout(timer);
