@@ -14,9 +14,6 @@ const Fish = (props) => {
   return (
     <View
       style={{
-        borderWidth: 1,
-        borderColor: 'white',
-        borderStyle: 'solid',
         position: 'absolute',
         left: xPos,
         top: yPos,
