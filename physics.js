@@ -7,7 +7,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
   let world = engine.world;
 
   let randomSpeed = () => {
-    let xSpeed = (Math.floor(Math.random() * (3 - 1) + 1))
+    let xSpeed = (Math.floor(Math.random() * (3 - 1) + 2))
     let xSpeedReturn = -xSpeed
     return xSpeedReturn
   }
@@ -32,6 +32,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
       x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
     });
+    enemy1speed--;
   }
 
   if (entities.Enemy2.body.position.x < -35) {
@@ -41,6 +42,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
       x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
     });
+    enemy2speed--;
   }
   if (entities.Enemy3.body.position.x < -35) {
     dispatch({ type: "score" });
@@ -48,8 +50,8 @@ const Physics = (entities, { touches, time, dispatch }) => {
     Matter.Body.setPosition(entities.Enemy3.body, {
       x: Constants.WINDOW_WIDTH + 35 + randomXOffset,
       y: randomY(Constants.SCREEN_HEIGHT),
-
     });
+    enemy3speed--;
   }
 
 
