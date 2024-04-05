@@ -87,17 +87,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
     }
 
 
-    // if ((objALabel === 'Enemy1' && objBLabel === 'LeftEdge') ||
-    //   (objALabel === 'LeftEdge' && objBLabel === 'Enemy1')) {
-    //   console.log('collision')
-    // }
-
-
-    // if ((objALabel === 'Fish' && objBLabel === 'LeftEdge') ||
-    //   (objALabel === 'LeftEdge' && objBLabel === 'Enemy1')) {
-    //   console.log('collision')
-    // }
-
+ 
   })
   return entities;
 };
